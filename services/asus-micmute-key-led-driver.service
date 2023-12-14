@@ -1,0 +1,18 @@
+[Unit]
+Description=ASUS Mic Mute Key LED Service
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/asus-micmute-key-led-driver/src/
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/bin/bash main.sh
+Restart=on-failure
+RestartSec=1
+StandardOutput= /var/log/asus-micmute-key-led-driver.log
+StandardError= /var/log/asus-micmute-key-led-driver-error.log
+
+[Install]
+WantedBy=multi-user.target
