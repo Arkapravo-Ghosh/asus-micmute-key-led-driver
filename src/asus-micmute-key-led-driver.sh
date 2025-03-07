@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$EUID" -ne 0 ]; then
-  echo "This script must be run as root."
-  exit 1
-fi
-
 micmute_path="/sys/devices/platform/asus-nb-wmi/leds/platform::micmute/brightness"
 micmute_event=$(grep -E 'Handlers|asus-nb-wmi' /proc/bus/input/devices | grep -A1 'asus-nb-wmi' | grep -Eo 'event[0-9]+')
 # 7c is the key value for KEY_F20 in event9
@@ -18,11 +13,6 @@ micmute_key_value="value 7c"
 # type 1 (EV_KEY), code 190 (KEY_F20), value 0
 # -------------- SYN_REPORT ------------
 # It can be verified by running `/dev/input/$micmute_event`
-
-if [ ! -f "$micmute_path" ]; then
-  echo "Unsupported Device."
-  exit 1
-fi
 
 # This secures the change of the LED state for every micmute key press
 evtest /dev/input/$micmute_event | while read line; do
