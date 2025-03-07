@@ -69,7 +69,7 @@ install() {
 	# Copy all files from $DOWNLOAD_DIR to /opt/asus-micmute-key-led-driver
 	echo "Copying files from $DOWNLOAD_DIR to /opt/asus-micmute-key-led-driver..."
 	sudo mkdir -p /opt/asus-micmute-key-led-driver
-	cp -r "$DOWNLOAD_DIR"/* /opt/asus-micmute-key-led-driver/
+	sudo cp -r "$DOWNLOAD_DIR"/* /opt/asus-micmute-key-led-driver/
 	# Remove the download directory
 	echo "Removing the download directory..."
 	rm -rfd "$DOWNLOAD_DIR"
