@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables initialization
-DOWNLOAD_URL="https://github.com/RavenEibu/asus-micmute-key-led-driver.git"
+DOWNLOAD_URL="https://github.com/Arkapravo-Ghosh/asus-micmute-key-led-driver.git"
 DOWNLOAD_DIR=/home/$LOGNAME/asus-micmute-key-led-driver
 LED_MIC_PATH=/sys/devices/platform/asus-nb-wmi/leds/platform::micmute/brightness
 SERVICE_FILE=/etc/systemd/system/asus-micmute-key-led-driver.service
