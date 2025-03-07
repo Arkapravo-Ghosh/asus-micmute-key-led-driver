@@ -3,16 +3,8 @@
 micmute_path="/sys/devices/platform/asus-nb-wmi/leds/platform::micmute/brightness"
 micmute_event=$(grep -E 'Handlers|asus-nb-wmi' /proc/bus/input/devices | grep -A1 'asus-nb-wmi' | grep -Eo 'event[0-9]+')
 # 7c is the key value for KEY_F20 in event input
-# Example:
-# type 4 (EV_MSC), code 4 (MSC_SCAN), value 7c
+# Reffer to https://github.com/torvalds/linux/blob/master/drivers/platform/x86/asus-nb-wmi.c - Line 594
 micmute_key_value="value 7c"
-# Using KEY_F20 repeats itself 2 times when the key is pressed
-# Example:
-# type 1 (EV_KEY), code 190 (KEY_F20), value 1
-# -------------- SYN_REPORT ------------
-# type 1 (EV_KEY), code 190 (KEY_F20), value 0
-# -------------- SYN_REPORT ------------
-# It can be verified by running `evtest /dev/input/$micmute_event`
 
 # This secures the change of the LED state for every micmute key press
 evtest /dev/input/$micmute_event | while read line; do
