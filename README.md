@@ -21,7 +21,7 @@ identifier (in the kernel module with a value of 0x7c) of the mute key and chang
 - Run the following command in your terminal:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/RavenEibu/asus-micmute-key-led-driver/main/install.sh
+bash <(curl -s https://raw.githubusercontent.com/RavenEibu/asus-micmute-key-led-driver/main/installer.sh
 ```
 
 Boom! You're done! 🎉
